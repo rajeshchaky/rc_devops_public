@@ -8,16 +8,12 @@ public class RunTest {
 
 
     @Test
-    public void testFindMax1(){
-        Assertions.assertEquals(4, Calculation.findMax1(new int[]{1,3,4,2}));
-        //change the method in the below calculation.findmax2 method to findMax1 & you can re-create a junit failure*
-        Assertions.assertEquals(-1, Calculation.findMax2(new int[]{-12,-1,-3,-4,-2}));
-
+    public void test_JUnit() {
+        Assertions.assertEquals("This is the 1st testcase in this class", Calculation.returnString1());
     }
 
     @Test
-    public void testFindMax2(){
-        Assertions.assertEquals(4, Calculation.findMax2(new int[]{1,3,4,2}));
-        Assertions.assertEquals(-1, Calculation.findMax2(new int[]{-12,-1,-3,-4,-2}));
+    public void test_JUnit2() {
+        Assertions.assertEquals("This is the 2nd testcase in this class", Calculation.returnString2());
     }
 }

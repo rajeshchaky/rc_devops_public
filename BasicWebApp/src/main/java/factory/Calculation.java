@@ -2,21 +2,18 @@ package factory;
 
 public class Calculation {
 
-    public static int findMax1(int arr[]){
-        int max=0;
-        for(int i=1;i<arr.length;i++){
-            if(max<arr[i])
-                max=arr[i];
-        }
-        return max;
+
+    public static void test(){
+        System.out.println("testing");
     }
 
-    public static int findMax2(int arr[]){
-        int max=arr[0];//arr[0] instead of 0
-        for(int i=1;i<arr.length;i++){
-            if(max<arr[i])
-                max=arr[i];
-        }
-        return max;
+    public static String returnString1(){
+        System.out.println("This is the 1st testcase in this class");
+        return "This is the 1st testcase in this class";
+    }
+
+    public static String returnString2(){
+        System.out.println("This is the 2nd testcase in this class");
+        return "This is the 2nd testcase in this class";
     }
 }
