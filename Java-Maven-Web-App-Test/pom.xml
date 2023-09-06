@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.r2r</groupId>
-  <artifactId>WebTestFrameWork</artifactId>
+  <artifactId>Java-Maven-Web-App-Test</artifactId>
   <version>1.0</version>
   <packaging>war</packaging>
-  <name>WebTestFrameWork</name>
+  <name>Java-Maven-Web-App-Test</name>
 
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
@@ -54,7 +54,7 @@
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
-      <version>2.11.0</version>
+      <version>2.13.0</version>
     </dependency>
 
 
@@ -62,7 +62,7 @@
     <dependency>
       <groupId>tech.grasshopper</groupId>
       <artifactId>extentreports-cucumber7-adapter</artifactId>
-      <version>1.13.0</version>
+      <version>1.14.0</version>
     </dependency>
 
 
@@ -70,7 +70,7 @@
     <dependency>
       <groupId>com.aventstack</groupId>
       <artifactId>extentreports</artifactId>
-      <version>5.0.9</version>
+      <version>5.1.0</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
@@ -112,7 +112,7 @@
   </dependencies>
 
   <build>
-    <finalName>myTest</finalName>
+    <finalName>Java-Maven-Web-App-Test</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
