@@ -1,0 +1,49 @@
+---
+- hosts: dev
+  become: yes
+  tasks:
+   - name: repository update
+     apt:
+      name: "*"
+      state: latest
+   - name: install Jre
+     apt:
+      update_cache: yes
+      name: openjdk-11-jre-headless
+   - name: install jdk
+     apt:
+      update_cache: yes
+      name: openjdk-11-jdk-headless
+   - name: Install python pip
+     apt:
+      name: python-pip
+      state: present
+   - name: install maven
+     apt:
+      update_cache: yes
+      name: maven
+      state: latest
+   - name: install docker
+     apt:
+      name: docker
+      state: present
+   - name: start the docker service
+     service:
+      name: docker
+      state: started
+      enabled: yes
+   - name: install pip3
+     apt: 
+      name=python3-pip 
+      state=present 
+   - name: Install docker-py python module
+     pip:
+      name: docker-py
+      state: present
+   - name: start the container
+     docker_container:
+      name: rcapps
+      image: "rajeshchaky/rcapps:{{DOCKER_TAG}}"
+      state: started
+      published_ports:
+        - 0.0.0.0:8181:8181
