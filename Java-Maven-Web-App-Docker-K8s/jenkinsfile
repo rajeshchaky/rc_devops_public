@@ -1,0 +1,57 @@
+pipeline{
+    agent any
+    tools {
+        maven 'maven'
+    }
+    environment {
+        DOCKER_TAG = getCommitVersion()
+    }
+    stages{
+        stage('git_checkout'){
+            steps{
+                git branch: 'developer_branch', url: 'git@github.com:rajeshchaky/rc_devops_public.git'
+            }
+        }
+        stage('maven_build'){
+            steps{
+                sh 'mvn -f Java-Maven-Web-App/pom.xml clean compile cobertura:cobertura'
+            }
+        }
+        stage('maven_test'){
+            steps{
+                sh 'mvn -f Java-Maven-Web-App/pom.xml test'
+            }
+        }
+        stage('maven_package'){
+            steps{
+                sh 'mvn -f Java-Maven-Web-App/pom.xml package'
+            }
+        }
+        stage('docker_build'){
+            steps{
+                sh 'echo ${DOCKER_TAG}'
+                sh 'export DOCKER_BUILDKIT=0'
+                sh 'export COMPOSE_DOCKER_CLI_BUILD=0'
+                sh '/Applications/Docker.app/Contents/Resources/bin/docker build --platform linux/amd64 -t rajeshchaky/rcapps:${DOCKER_TAG} --file Java-Maven-Web-App/Dockerfile .'
+            }
+        }
+        stage('docker_upload'){
+            steps{
+                withCredentials([string(credentialsId: 'dockerUser', variable: 'dockerUser')]) {
+                   sh 'docker login -u rajeshchaky -p ${dockerUser}'
+                }
+                sh 'docker push rajeshchaky/rcapps:${DOCKER_TAG}'
+            }
+        }
+        stage('docker_deploy_to_machine'){
+            steps{
+               ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible', extras: "-e DOCKER_TAG=${DOCKER_TAG}",inventory: 'Java-Maven-Web-App/dev.inv', playbook: 'Java-Maven-Web-App/ansible_deployment.yml'
+            }
+        }
+    }
+}
+
+def getCommitVersion(){
+    def commitHash= sh returnStdout: true, script: 'git rev-parse --short HEAD'
+    return commitHash
+}
