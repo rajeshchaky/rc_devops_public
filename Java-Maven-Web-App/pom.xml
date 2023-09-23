@@ -48,7 +48,7 @@
   </dependencies>
 
   <build>
-    <finalName>Java-Maven-Web-App</finalName>
+    <finalName>myWebApp</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
