@@ -10,7 +10,7 @@
 
 ###
 
-<p align="left">✨ Detecting bugs on softwares since 2011 and automating applications in various technologies like UFT, Primarily Selenium and deploying them in Gitlab, Jenkins Pipelines. Morn on to the devOps roles in the organisation. Occasionally Business Analyst depending on Project demands :-)<br>📚 I'm currently learning AWS DevOps<br>🎯 Goals: DevOps Architect</p>
+<p align="left">✨ Detecting bugs on softwares since 2011 and automating applications in various technologies like UFT, Primarily Selenium and deploying them in Gitlab, Jenkins Pipelines. More on to the devOps roles in the organisation. Occasionally Business Analyst depending on Project demands :-)<br>📚 I'm currently learning AWS DevOps<br>🎯 Goals: DevOps Architect</p>
 
 ###
 
