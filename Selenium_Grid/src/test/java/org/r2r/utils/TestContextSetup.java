@@ -13,8 +13,8 @@ public class TestContextSetup {
 	public TestContextSetup() throws IOException
 	{
 		testBase = new TestBase();
-//		pageObjectManager = new PageObjectManager(testBase.WebDriverManager());
-		pageObjectManager =new PageObjectManager(testBase.remoteDriverManager());
+		pageObjectManager = new PageObjectManager(testBase.WebDriverManager());
+//		pageObjectManager =new PageObjectManager(testBase.remoteDriverManager());
 
 	}
 	
